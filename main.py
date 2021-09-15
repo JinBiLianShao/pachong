@@ -12,9 +12,12 @@ def get_html(url): #爬取源码函数
     return html  # 返回网页源码
 
 if __name__ == '__main__':
+    #需要爬的网址
     t = get_html("http://127.0.0.1/zhiyuan/")
+    #查找替换
     t = t.replace("http://127.0.0.1", "https://jinbilianshao.github.io")
     t = t.replace("/index.php/", "/")
+    #建立文件并循环写入数据到文本中
     with open('index.html', 'w' ,encoding="utf-8") as s:
         for i in t:
             s.write(i)
